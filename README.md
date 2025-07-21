@@ -3,7 +3,7 @@
 
 ## 🚀 Overview
 
-Smart PDF Extractor is an AI-powered Streamlit app that lets you upload a PDF and extract exactly the information you need, in your preferred format. Powered by Google Gemini 2.5 Flash, it provides flexible, accurate, and user-friendly document analysis for any use case.
+Smart PDF Extractor is an AI-powered Streamlit app that lets you upload a PDF and extract exactly the information you need, in your preferred format.
 
 ---
 
@@ -14,7 +14,7 @@ Smart PDF Extractor is an AI-powered Streamlit app that lets you upload a PDF an
 - **Entity Selection**: Specify fields/entities to extract (e.g., Invoice Number, Total Amount).
 - **Output Styles**: Choose from bullet list, numbered list, table, paragraph summary, or JSON.
 - **Extra Instructions**: Add notes (e.g., currency conversion, page references).
-- **AI-Powered Extraction**: Uses Gemini 2.5 Flash for accurate, context-aware results.
+- **AI-Powered Extraction**: Uses LLM for accurate, context-aware results.
 - **Download Results**: Save extracted info as Markdown.
 - **Session State**: Seamless user experience with persistent form data.
 
@@ -27,29 +27,10 @@ graph TD
     A[User] -->|Uploads PDF| B(Streamlit UI)
     B -->|Collects Intent| C[Intent Form]
     C -->|Builds Prompt| D[Prompt Builder]
-    D -->|Sends PDF & Prompt| E[Gemini API]
+    D -->|Sends PDF & Prompt| E[LLM API]
     E -->|Returns Extraction| F[Result Display]
     F -->|Download| G[Markdown File]
 ```
-
----
-
-## 🛠️ Installation
-
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/aabdullah27/AI-PDF-Extractor.git
-   cd AI-PDF-Extractor
-   ```
-2. **Install dependencies**
-   ```bash
-   uv sync
-   ```
-3. **Set up your Google API key**
-   - Create a `.env` file in the project root:
-     ```env
-     GOOGLE_API_KEY=your_google_api_key_here
-     ```
 
 ---
 
@@ -72,7 +53,7 @@ streamlit run main.py
 sequenceDiagram
     participant U as User
     participant S as Streamlit App
-    participant G as Gemini API
+    participant G as LLM API
     U->>S: Upload PDF & fill form
     S->>S: Build prompt from user intent
     S->>G: Send PDF + prompt
@@ -99,7 +80,3 @@ AI-Doc-Feild-Extractor/
 
 > "Find all financial figures and summarize them in a table. Extract Invoice Number, Total Amount, Due Date, Customer Name. Convert all currencies to USD."
 
----
-
-## 📧 Contact
-- [Owner: aabdullah27](https://github.com/aabdullah27)
